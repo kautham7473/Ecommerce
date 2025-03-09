@@ -35,7 +35,5 @@ jobs:
           # The package type (jdk, jre, jdk+fx, jre+fx)
           java-package: jdk
           cache: maven
-          # The path to a dependency file: pom.xml, build.gradle, build.sbt, etc. This option can be used with the `cache` option. If this option is omitted, the action searches for the dependency file in the entire repository. This option supports wildcards and a list of file names for caching multiple dependencies.
-          cache-dependency-path: pom.xml
       - run: mvn clean install
                 
