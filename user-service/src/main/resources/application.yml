@@ -1,6 +1,10 @@
 spring:
   application:
     name: user-service
+#  cloud:
+  config:
+    import: configserver:http://localhost:8888  # Config Server URL
+    fail-fast: true  # Fails if config server is not reachable
 server:
   port: 8080
 eureka:
