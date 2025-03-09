@@ -1,0 +1,36 @@
+services:
+  discovery-server:
+    build: ./discovery-server
+    networks:
+      - my-network
+    ports:
+      - "8761:8761"
+
+  config-server:
+    build: ./config-server
+    ports:
+      - "8888:8888"
+    depends_on:
+      - discovery-server
+    networks:
+      - my-network
+    environment:
+      - SPRING_APPLICATION_NAME=user-service
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery-server:8761/eureka/
+
+
+  user-service:
+    build: ./user-service
+    ports:
+      - "8080:8080"
+    depends_on:
+      - discovery-server
+    networks:
+      - my-network
+    environment:
+      - SPRING_APPLICATION_NAME=user-service
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery-server:8761/eureka/
+
+networks:
+  my-network:
+    driver: bridge
