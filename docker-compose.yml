@@ -25,6 +25,7 @@ services:
       - "8080:8080"
     depends_on:
       - discovery-server
+      - config-server
     networks:
       - my-network
     environment:
