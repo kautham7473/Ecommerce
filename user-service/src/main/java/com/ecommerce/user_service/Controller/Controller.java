@@ -1,0 +1,13 @@
+package com.ecommerce.user_service.Controller;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/api")
+public class Controller {
+    @RequestMapping("/helloworld")
+    public String helloworld() {
+        return ("Hello World");
+    }
+}
