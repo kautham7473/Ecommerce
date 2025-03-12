@@ -5,7 +5,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/kautham7473/Ecommerce
+          uri: https://github.com/kautham7473/Ecommerce.git
           username: kauthamthiyagarajan@gmail.com
           password: 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
           default-label: feature/init  # Branch name
