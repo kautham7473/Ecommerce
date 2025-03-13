@@ -1,12 +1,7 @@
 spring:
-  application:
-    name: user-service
-#  cloud:
-  config:
-    import: "optional:configserver:http://config-server:8888"  # Config Server URL
-    fail-fast: true  # Fails if config server is not reachable
 server:
   port: 8080
+
 eureka:
   client:
     enabled: true
@@ -14,6 +9,20 @@ eureka:
     prefer-ip-address: true
     should-fetch-registry: true
     register-with-eureka: true
-    serviceUrl:
+    service-url:
       defaultZone: http://localhost:8761/eureka
 
+
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ""
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
