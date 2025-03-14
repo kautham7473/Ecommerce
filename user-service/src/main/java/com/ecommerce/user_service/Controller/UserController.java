@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/auth")
 public class UserController {
 
     private final userService userservice;
@@ -22,7 +22,9 @@ public class UserController {
     public ResponseEntity<?> getAllUsers() {
         List<User> users = userservice.getAllUsers();
         if (users.isEmpty()) {
-            return ResponseEntity.ok(Map.of("message", "No users found in the database."));
+            return ResponseEntity.ok(Map.of(
+                    "message", "No users found in the database."
+            ));
         }
         return ResponseEntity.ok(users);
     }
