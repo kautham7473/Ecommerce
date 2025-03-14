@@ -1,7 +1,7 @@
 package com.ecommerce.user_service.Controller;
 
 import com.ecommerce.user_service.Entity.User;
-import com.ecommerce.user_service.Service.userService;
+import com.ecommerce.user_service.Service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,9 +12,9 @@ import java.util.Map;
 @RequestMapping("/auth")
 public class UserController {
 
-    private final userService userservice;
+    private final UserService userservice;
 
-    public UserController(userService userservice) {
+    public UserController(UserService userservice) {
         this.userservice = userservice;
     }
 
