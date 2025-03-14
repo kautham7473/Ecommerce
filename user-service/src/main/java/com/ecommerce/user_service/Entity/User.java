@@ -3,7 +3,7 @@ package com.ecommerce.user_service.Entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "users")
+@Table(name = "users") // Ensure this matches the actual DB table name
 public class User {
 
     @Id
@@ -11,22 +11,27 @@ public class User {
     private Long id;
 
     @Column(nullable = false)
+    private String username;
+
+    @Column(nullable = false)
     private String firstName;
 
     @Column(nullable = false)
     private String lastName;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String email;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String phoneNo;
 
     @Column(nullable = false)
     private String password;
 
-    public User(Long id, String firstName, String lastName, String email, String phoneNo, String password) {
+    // For fetching users
+    public User(Long id, String username, String firstName, String lastName, String email, String phoneNo, String password) {
         this.id = id;
+        this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -34,9 +39,12 @@ public class User {
         this.password = password;
     }
 
-    public User() {}
+    public User() {
+    }
 
-    public User(String firstName, String lastName, String email, String phoneNo, String password) {
+    // For creating new users
+    public User(String username, String firstName, String lastName, String email, String phoneNo, String password) {
+        this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -50,6 +58,14 @@ public class User {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getFirstName() {
