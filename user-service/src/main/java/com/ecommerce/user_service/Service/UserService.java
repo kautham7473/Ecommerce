@@ -5,18 +5,18 @@ import com.ecommerce.user_service.Entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import com.ecommerce.user_service.Repository.userRepository;
+import com.ecommerce.user_service.Repository.UserRepository;
 
 import java.util.List;
 
 @Service
-public class userService {
+public class UserService {
 
-    private final userRepository userRepository;
+    private final UserRepository userRepository;
     private final BCryptPasswordEncoder passwordEncoder;
 
     @Autowired
-    public userService(userRepository userRepository) {
+    public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
         this.passwordEncoder = new BCryptPasswordEncoder();
     }
