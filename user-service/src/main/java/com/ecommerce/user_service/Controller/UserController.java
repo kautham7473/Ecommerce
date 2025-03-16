@@ -35,7 +35,8 @@ public class UserController {
             User registeredUser = userservice.registerUser(user);
             return ResponseEntity.ok(Map.of(
                     "message", "User Registered Successfully",
-                    "user", registeredUser
+                    "username", registeredUser.getUsername(),
+                    "email", registeredUser.getEmail()
             ));
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(Map.of("error", e.getMessage()));
