@@ -1,5 +1,6 @@
 package com.ecommerce.user_service.controller;
 
+import com.ecommerce.user_service.entity.Role;
 import com.ecommerce.user_service.entity.User;
 import com.ecommerce.user_service.repository.UserRepository;
 import com.ecommerce.user_service.util.JwtUtil;
@@ -29,7 +30,10 @@ public class AuthController {
         if (userRepository.findByEmail(user.getEmail()).isPresent()) {
             return ResponseEntity.badRequest().body(Map.of("error", "Email is already in use"));
         }
-
+//      Set Default user
+        if (user.getRole() == null) {
+            user.setRole(Role.CUSTOMER);
+        }
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
         return ResponseEntity.ok(Map.of("message", "User registered successfully"));

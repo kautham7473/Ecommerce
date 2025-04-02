@@ -1,7 +1,10 @@
 spring:
   application:
     name: user-service
-
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
 cloud:
   config:
     import: configserver:http://localhost:8888  # Config Server URL

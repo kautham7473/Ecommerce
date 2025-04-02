@@ -16,7 +16,7 @@ public class DataSourceConfig {
         dataSource.setDriverClassName("org.mariadb.jdbc.Driver");
         dataSource.setUrl("jdbc:mariadb://kautham.helioho.st:3306/kautham_ecomm");
         dataSource.setUsername("kautham_admin");
-        dataSource.setPassword("8^ap8v7Q2");
+        dataSource.setPassword("why873~4R");
         return dataSource;
     }
 }
