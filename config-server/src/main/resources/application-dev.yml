@@ -22,4 +22,4 @@ eureka:
     should-fetch-registry: true
     register-with-eureka: true
     serviceUrl:
-      defaultZone: https://discovery-server-vu7l.onrender.com/
+      defaultZone: https://discovery-server-vu7l.onrender.com/eureka
