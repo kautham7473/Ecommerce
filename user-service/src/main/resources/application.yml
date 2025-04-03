@@ -1,9 +1,13 @@
 spring:
   application:
     name: user-service
-#  cloud:
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+cloud:
   config:
-    import: "optional:configserver:http://config-server:8888"  # Config Server URL
+    import: configserver:http://localhost:8888  # Config Server URL
     fail-fast: true  # Fails if config server is not reachable
 server:
   port: 8080
@@ -17,3 +21,6 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka
 
+jwt:
+  secret: "/yVxiGImzqTLIc/KZ6MaO7bL5EUl58NtkqgvEugu6AM="
+  expiration: 3600000
