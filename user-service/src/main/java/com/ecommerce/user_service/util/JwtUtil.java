@@ -4,6 +4,7 @@ import com.ecommerce.user_service.entity.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
@@ -15,6 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Component
+@Slf4j
 public class JwtUtil {
 
     private final SecretKey key;
@@ -30,16 +32,11 @@ public class JwtUtil {
 
     public String generateToken(User user) {
         Map<String, Object> claims = new HashMap<>();
-        claims.put("username", user.getUsername());
-        claims.put("firstName", user.getFirstName());
-        claims.put("lastName", user.getLastName());
-        claims.put("email", user.getEmail());
-        claims.put("phoneNo", user.getPhoneNo());
-        claims.put("role", user.getRole());
+        claims.put("role", user.getRole());  // Only store essential claims
 
         return Jwts.builder()
                 .claims(claims)
-                .subject(user.getUsername())
+                .subject(user.getUsername()) // Subject is the username
                 .signWith(key)
                 .issuedAt(new Date())
                 .expiration(new Date(System.currentTimeMillis() + expirationTime))
@@ -47,27 +44,30 @@ public class JwtUtil {
     }
 
     public Claims getClaims(String token) {
-        return Jwts.parser()
-                .verifyWith(key)
-                .build()
-                .parseSignedClaims(token)
-                .getPayload();
+        try {
+            return Jwts.parser()
+                    .verifyWith(key)
+                    .build()
+                    .parseSignedClaims(token)
+                    .getPayload();
+        } catch (Exception e) {
+            log.warn("Invalid JWT token: {}", e.getMessage());
+            return null; // Return null instead of throwing an exception
+        }
     }
 
     public String extractUsername(String token) {
-        return getClaims(token).getSubject();
+        Claims claims = getClaims(token);
+        return claims != null ? claims.getSubject() : null;
     }
 
     public boolean validateToken(String token, UserDetails userDetails) {
-        return isTokenValid(token, userDetails.getUsername()) && isTokenExpired(token);
+        String username = extractUsername(token);
+        return username != null && username.equals(userDetails.getUsername()) && !isTokenExpired(token);
     }
 
-
-    public boolean isTokenValid(String token, String username) {
-        return username.equals(extractUsername(token)) && isTokenExpired(token);
-    }
-
-    private boolean isTokenExpired(String token) {
-        return !getClaims(token).getExpiration().before(new Date());
+    public boolean isTokenExpired(String token) {
+        Claims claims = getClaims(token);
+        return claims != null && claims.getExpiration().before(new Date());
     }
 }
