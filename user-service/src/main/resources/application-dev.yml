@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: user-service
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+cloud:
+  config:
+    import: configserver:https://config-server-65ck.onrender.com  # Config Server URL
+    fail-fast: true  # Fails if config server is not reachable
+server:
+  port: 8080
+eureka:
+  client:
+    enabled: true
+    use-dns-for-fetching-service-urls: false
+    prefer-ip-address: true
+    should-fetch-registry: true
+    register-with-eureka: true
+    serviceUrl:
+      defaultZone: https://discovery-server-vu7l.onrender.com/eureka
+
+jwt:
+  secret: "/yVxiGImzqTLIc/KZ6MaO7bL5EUl58NtkqgvEugu6AM="
+  expiration: 3600000
