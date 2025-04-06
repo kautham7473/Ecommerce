@@ -83,4 +83,28 @@ This project is not just a tech demo – it’s a **personal milestone**. It's b
 ---
 
 ## 📁 Repo Structure (so far)
-/config-server /discovery-server /user-service /product-service /docker-compose.yml README.md
+ecommerce-microservices/ 
+│ 
+├── config-server/ # Centralized config management 
+    │ 
+    └── src/ 
+│ 
+├── discovery-server/ # Eureka service discovery 
+    │ 
+    └── src/ 
+│ 
+├── user-service/ # Manages users & JWT auth 
+    │ 
+    ├── src/ 
+    │ 
+    └── Dockerfile 
+│ 
+├── product-service/ # Handles seller product listings 
+    │ 
+    ├── src/ 
+    │ 
+    └── Dockerfile 
+│ 
+├── docker-compose.yml # For local orchestration of all services 
+│ 
+└── README.md # This file 👋
