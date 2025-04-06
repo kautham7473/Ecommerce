@@ -83,4 +83,32 @@ This project is not just a tech demo – it’s a **personal milestone**. It's b
 ---
 
 ## 📁 Repo Structure (so far)
-<pre><code>ecommerce-microservices/ ├── config-server/ # Centralized configuration service │ └── src/ │ ├── discovery-server/ # Eureka naming server │ └── src/ │ ├── user-service/ # Handles user registration, login, JWT │ ├── src/ │ └── Dockerfile │ ├── product-service/ # Handles product listing, seller linkage │ ├── src/ │ └── Dockerfile │ ├── docker-compose.yml # Spins up all services locally └── README.md # You're reading it! </code></pre>
+<pre>
+  <code>
+    ecommerce-microservices/ 
+ │ 
+ ├── config-server/ # Centralized config management 
+     │ 
+     └── src/ 
+ │ 
+ ├── discovery-server/ # Eureka service discovery 
+     │ 
+     └── src/ 
+ │ 
+ ├── user-service/ # Manages users & JWT auth 
+     │ 
+     ├── src/ 
+     │ 
+     └── Dockerfile 
+ │ 
+ ├── product-service/ # Handles seller product listings 
+     │ 
+     ├── src/ 
+     │ 
+     └── Dockerfile 
+ │ 
+ ├── docker-compose.yml # For local orchestration of all services 
+ │ 
+ └── README.md # This file 👋
+  </code>
+</pre>
