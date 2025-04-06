@@ -1,23 +1,48 @@
 spring:
   application:
     name: user-service
+
+  datasource:
+    url: jdbc:mariadb://kautham.helioho.st:3306/kautham_ecomm?connectTimeout=10000&socketTimeout=15000
+    username: kautham_admin
+    password: why873~4R
+    driver-class-name: org.mariadb.jdbc.Driver
+
+  hikari:
+    maximum-pool-size: 2
+    minimum-idle: 1
+    idle-timeout: 30000
+    max-lifetime: 60000
+    keepalive-time: 30000
+    connection-timeout: 10000
+    validation-timeout: 5000
+    initialization-fail-timeout: 0
+    auto-commit: true
+    connection-test-query: SELECT 1
+    leak-detection-threshold: 20000
+
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: update
     show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MariaDBDialect
+
 cloud:
   config:
-    import: configserver:http://localhost:8888  # Config Server URL
-    fail-fast: true  # Fails if config server is not reachable
+    import: configserver:http://localhost:8888
+    fail-fast: true
+
 server:
   port: 8080
+
 eureka:
   client:
     enabled: true
-    use-dns-for-fetching-service-urls: false
     prefer-ip-address: true
-    should-fetch-registry: true
     register-with-eureka: true
+    fetch-registry: true
     serviceUrl:
       defaultZone: http://localhost:8761/eureka
 
