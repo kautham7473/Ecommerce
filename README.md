@@ -72,13 +72,15 @@ A backend microservices-based architecture for an e-commerce application built u
 
 ## ❤️ About This Project
 
-This project is not just a tech demo – it’s a **personal milestone**. It's been built:
-- To sharpen backend & infra skills
-- To lead a real-world project solo
-- To help my girlfriend showcase her Selenium skills
-- To empower my resume with something *real* and impactful
+This isn’t just a technical showcase — it’s a deeply personal milestone.
 
-> **"A project built with heart, hustle, and a dream to move forward."**
+Built with purpose, it reflects:
+- 💻 My journey to level up backend & infrastructure expertise  
+- 🧠 Taking full ownership and leading a real-world project end-to-end  
+- 💕 Creating an opportunity for my girlfriend to demonstrate her Selenium testing skills  
+- 🚀 Bringing life to my resume with a project that actually means something  
+
+> "More than just code — this is a story of growth, grit, and the belief that we can build our own way forward."
 
 ---
 
