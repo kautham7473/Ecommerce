@@ -84,8 +84,7 @@ This project is not just a tech demo – it’s a **personal milestone**. It's b
 
 ## 📁 Repo Structure (so far)
 <pre>
-  <code>
-    ecommerce-microservices/ 
+ ecommerce-microservices/ 
  │ 
  ├── config-server/ # Centralized config management 
      │ 
@@ -110,5 +109,4 @@ This project is not just a tech demo – it’s a **personal milestone**. It's b
  ├── docker-compose.yml # For local orchestration of all services 
  │ 
  └── README.md # This file 👋
-  </code>
 </pre>
