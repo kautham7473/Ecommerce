@@ -13,4 +13,9 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ProductResponseDTO> handleUnauthorizedUserException(UnauthorizedUserException ex) {
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new ProductResponseDTO(ex.message));
     }
+
+    @ExceptionHandler(InvalidUserException.class)
+    public ResponseEntity<ProductResponseDTO> handleInvalidUserException(InvalidUserException ex) {
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new ProductResponseDTO(ex.message));
+    }
 }

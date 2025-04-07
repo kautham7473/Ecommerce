@@ -1,4 +1,4 @@
-package com.ecommerce.user_service;
+package com.ecommerce.user_service.controller;
 
 import com.ecommerce.user_service.dto.LoginDto;
 import com.ecommerce.user_service.entity.User;

@@ -38,6 +38,16 @@ public class ProductService {
         }
     }
 
+    public List<Product> getAllProductsAdmin() {
+        try {
+            log.info("Fetching products uploaded by all the sellers");
+            return productRepository.findAll();
+        } catch (Exception e) {
+            log.warn("Couldn't find the products uploaded by all the seller");
+            return null;
+        }
+    }
+
     public Product getProductById(Long id) {
         log.info("Fetching for the Product");
         Optional<Product> product = productRepository.findById(id);

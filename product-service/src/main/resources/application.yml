@@ -2,12 +2,12 @@ spring:
   application:
     name: product-service
   config:
-    import: optional:configserver:http://localhost:8888  # Config Server URL
+    import: optional:configserver:http://config-server:8888  # Config Server URL
     fail-fast: true  # Fails if config server is not reachable
   datasource:
     url: jdbc:mariadb://kautham.helioho.st:3306/kautham_ecomm?connectTimeout=10000&socketTimeout=15000
-    username: kautham_admin
-    password: why873~4R
+    username: kautham_product
+    password: 6vm746Qs&
     driver-class-name: org.mariadb.jdbc.Driver
 
   jpa:

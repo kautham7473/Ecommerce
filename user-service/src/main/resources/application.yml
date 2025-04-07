@@ -4,8 +4,8 @@ spring:
 
   datasource:
     url: jdbc:mariadb://kautham.helioho.st:3306/kautham_ecomm?connectTimeout=10000&socketTimeout=15000
-    username: kautham_admin
-    password: why873~4R
+    username: kautham_user
+    password: 3b7z4c%X3
     driver-class-name: org.mariadb.jdbc.Driver
 
   hikari:
