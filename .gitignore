@@ -1,5 +1,5 @@
 /.idea
-#/config-server/target/
-#/discovery-server/target/
-#/user-service/target/
-/product-service/target/
+# Ignore everything inside target folders
+**/target/**
+# But don't ignore JAR files inside target folders
+!**/target/*.jar

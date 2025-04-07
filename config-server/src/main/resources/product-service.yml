@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:mariadb://kautham.helioho.st:3306/kautham_ecomm
+    username: kautham_admin
+    password: why873~4R
+    driver-class-name: org.mariadb.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MariaDBDialect

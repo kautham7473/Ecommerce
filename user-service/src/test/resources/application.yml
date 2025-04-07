@@ -2,3 +2,9 @@ spring:
   cloud:
     config:
       enabled: false
+eureka:
+  client:
+    enabled: false
+jwt:
+  secret: "TestSecretcodeshouldbeuniquevalue"
+  expiration: 3600000
