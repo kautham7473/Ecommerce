@@ -1,5 +1,0 @@
-/.idea
-#/config-server/target/
-#/discovery-server/target/
-#/user-service/target/
-/product-service/target/
