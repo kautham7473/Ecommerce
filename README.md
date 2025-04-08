@@ -1,114 +1,167 @@
-# 🛒 E-Commerce Microservices Project
+🛒 E-Commerce Microservices Project
 
-A backend microservices-based architecture for an e-commerce application built using **Spring Boot**, **Spring Cloud**, and **Docker**, with support for service discovery, centralized configuration, and token-based authentication (JWT – in progress).
+A microservices-based backend architecture for an e-commerce application using Spring Boot, Spring Cloud, Docker, and more. The project includes service discovery, centralized configuration, containerized deployment, and JWT-based authentication (WIP).
 
----
-
-## 🧩 Services Included
-
-### ✅ Discovery Server (Eureka)
-- **Purpose**: Enables service registration and discovery.
-- **Status**: ✅ Deployed on Render
-- **Tech Stack**: Spring Cloud Eureka
-
-### ✅ Config Server
-- **Purpose**: Centralized configuration management for all microservices.
-- **Status**: ✅ Deployed on Render
-- **Tech Stack**: Spring Cloud Config
-
-### ✅ User Service
-- **Purpose**: Handles user creation, authentication, and seller info.
-- **Status**: ✅ Deployed on Render
-- **Features**:
-  - User Registration
-  - User Login
-  - JWT Token Generation (to be used by other services)
-
-### ✅ Product Service
-- **Purpose**: Manages all products listed by sellers.
-- **Status**: ✅ Tested and working locally
-- **Features Implemented**:
-  - Create Product (linked to seller via user ID)
-  - Get All Products by Seller
-  - Get Product by ID
-  - Delete Product
-- **Pending**:
-  - JWT Authentication (next step)
-  - Authorization with extracted user ID
 
 ---
 
-## 🔧 Tech Stack
+🧩 Microservices Overview
 
-- Java 21
-- Spring Boot 3.4.3
-- Spring Cloud
-- Eureka
-- Spring Cloud Config
-- Docker & Docker Compose
-- PostgreSQL (planned)
-- JWT (in progress)
+✅ Discovery Server (Eureka)
+
+Purpose: Service registration & discovery.
+
+Status: Live on Render
+
+Tech Stack: Spring Cloud Eureka
+
+
+✅ Config Server
+
+Purpose: Centralized configuration management.
+
+Status: Live on Render
+
+Tech Stack: Spring Cloud Config
+
+
+✅ User Service
+
+Purpose: Manages users, authentication, and seller details.
+
+Status: Live on Render
+
+Features:
+
+User Registration & Login
+
+JWT Token Generation (to be consumed by other services)
+
+
+
+🛠️ Product Service
+
+Purpose: Handles product listings by sellers.
+
+Status: Tested locally
+
+Implemented:
+
+Create Product (mapped to seller ID)
+
+Retrieve Products by Seller
+
+Retrieve Product by ID
+
+Delete Product
+
+
+Next Steps:
+
+Integrate JWT Authentication
+
+Role-based Authorization
+
+
+
 
 ---
 
-## 📦 Deployment
+🧰 Tech Stack
 
-- Discovery & Config Server: ✅ [Hosted on Render](https://render.com/)
-- User Service: ✅ Deployed
-- Product Service: 🛠️ In progress (currently tested locally)
+Java 21
 
----
+Spring Boot 3.4.3
 
-## 🚧 Next Steps
+Spring Cloud (Eureka, Config)
 
-- [x] Add JWT Authentication to Product Service
-- [ ] Deploy Product Service
-- [ ] Implement Order, Payment, and Inventory services
-- [ ] Create frontend for the app (React – planned)
-- [ ] Enable integration testing with Selenium (planned)
-- [ ] Finalize README with detailed setup instructions
+Docker & Docker Compose
 
----
+PostgreSQL (upcoming)
 
-## ❤️ About This Project
+JWT (in progress)
 
-This isn’t just a technical showcase — it’s a deeply personal milestone.
 
-Built with purpose, it reflects:
-- 💻 My journey to level up backend & infrastructure expertise  
-- 🧠 Taking full ownership and leading a real-world project end-to-end  
-- 💕 Creating an opportunity for my girlfriend to demonstrate her Selenium testing skills  
-- 🚀 Bringing life to my resume with a project that actually means something  
-
-> "More than just code — this is a story of growth, grit, and the belief that we can build our own way forward."
 
 ---
 
-## 📁 Repo Structure (so far)
-<pre>
- ecommerce-microservices/ 
- │ 
- ├── config-server/ # Centralized config management 
-     │ 
-     └── src/ 
- │ 
- ├── discovery-server/ # Eureka service discovery 
-     │ 
-     └── src/ 
- │ 
- ├── user-service/ # Manages users & JWT auth 
-     │ 
-     ├── src/ 
-     │ 
-     └── Dockerfile 
- │ 
- ├── product-service/ # Handles seller product listings 
-     │ 
-     ├── src/ 
-     │ 
-     └── Dockerfile 
- │ 
- ├── docker-compose.yml # For local orchestration of all services 
- │ 
- └── README.md # This file 👋
-</pre>
+🚀 Deployment
+
+Render:
+
+Discovery Server ✅
+
+Config Server ✅
+
+User Service ✅
+
+Product Service: Coming soon
+
+
+
+
+---
+
+🛣️ Roadmap
+
+[x] Add JWT to User Service
+
+[ ] Apply JWT to Product Service
+
+[ ] Deploy Product Service to Render
+
+[ ] Implement Order, Inventory & Payment Services
+
+[ ] Build React Frontend
+
+[ ] Setup Selenium UI Test Automation
+
+[ ] Add Setup Instructions to README
+
+
+
+---
+
+❤️ Why This Project Matters
+
+This isn’t just a technical demo — it’s a journey.
+
+Skill Expansion: Sharpening backend + infra mastery
+
+Ownership: Managing architecture, deployment & codebase solo
+
+Collaboration: Platform for my girlfriend to showcase Selenium expertise
+
+Career Value: A project with purpose that reflects real impact
+
+
+> "This is more than just code — it’s a canvas of growth, learning, and love."
+
+
+
+
+---
+
+📁 Repository Structure
+
+ecommerce-microservices/ 
+ ├── config-server/         # Spring Cloud Config Server
+ ├── discovery-server/      # Eureka Discovery Server
+ ├── user-service/          # User Mgmt & JWT
+ ├── product-service/       # Product Mgmt
+ ├── docker-compose.yml     # Local orchestration
+ └── README.md              # You're here!
+
+
+---
+
+✨ Coming Soon
+
+Frontend in React (NeoCart UI)
+
+End-to-End UI testing with Selenium
+
+Production-grade setup and documentation
+
+
+Let’s build this forward!
