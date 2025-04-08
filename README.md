@@ -61,7 +61,7 @@ A backend microservices-based architecture for an e-commerce application built u
 
 ## 🚧 Next Steps
 
-- [ ] Add JWT Authentication to Product Service
+- [x] Add JWT Authentication to Product Service
 - [ ] Deploy Product Service
 - [ ] Implement Order, Payment, and Inventory services
 - [ ] Create frontend for the app (React – planned)
