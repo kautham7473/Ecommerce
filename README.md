@@ -32,7 +32,6 @@ A backend microservices-based e-commerce system using **Spring Boot**, **Spring 
   - Get all products by seller
   - Get product by ID
   - Delete product
-- **Pending**:
   - JWT token verification
   - Authorization using extracted user ID
 
@@ -60,7 +59,7 @@ A backend microservices-based e-commerce system using **Spring Boot**, **Spring 
 ## ✅ Next Goals
 
 - [x] JWT for User Service
-- [ ] JWT Validation in Product Service
+- [x] JWT Validation in Product Service
 - [ ] Deploy Product Service to Render
 - [ ] Build Order, Payment & Inventory Services
 - [ ] Develop Frontend (React)
