@@ -28,9 +28,9 @@ public class SecurityConfig {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/auth/login", "/auth/register").permitAll() // Public endpoints
-                        .requestMatchers("/product/**").hasAnyRole("SELLER","ADMIN")
-                        .requestMatchers("/order/**").hasAnyRole("CONSUMER","ADMIN")
+                        .requestMatchers("/auth/login", "/auth/register", "/auth/check-username").permitAll() // Public endpoints
+                        .requestMatchers("/product/**").hasAnyAuthority("ROLE_SELLER","ROLE_ADMIN")
+                        .requestMatchers("/order/**").hasAnyAuthority("ROLE_CONSUMER","ROLE_ADMIN")
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session

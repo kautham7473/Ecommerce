@@ -5,9 +5,31 @@ spring:
     hibernate:
       ddl-auto: none
     show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MariaDBDialect
+  datasource:
+    url: jdbc:mariadb://kautham.helioho.st:3306/kautham_ecomm?connectTimeout=10000&socketTimeout=15000
+    username: kautham_user
+    password: '${DB_PASSWORD}'
+    driver-class-name: org.mariadb.jdbc.Driver
+
+  hikari:
+    maximum-pool-size: 2
+    minimum-idle: 1
+    idle-timeout: 30000
+    max-lifetime: 60000
+    keepalive-time: 30000
+    connection-timeout: 10000
+    validation-timeout: 5000
+    initialization-fail-timeout: 0
+    auto-commit: true
+    connection-test-query: SELECT 1
+    leak-detection-threshold: 20000
+
 cloud:
   config:
-    import: configserver:https://config-server-65ck.onrender.com  # Config Server URL
+    import: configserver:http://config-server:8888  # Config Server URL
     fail-fast: true  # Fails if config server is not reachable
 server:
   port: 8080
@@ -22,5 +44,5 @@ eureka:
       defaultZone: https://discovery-server-vu7l.onrender.com/eureka
 
 jwt:
-  secret: "/yVxiGImzqTLIc/KZ6MaO7bL5EUl58NtkqgvEugu6AM="
+  secret: '${JWT_SECRET_KEY}'
   expiration: 3600000
