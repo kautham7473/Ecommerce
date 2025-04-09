@@ -7,7 +7,7 @@ spring:
         git:
           uri: https://github.com/kautham7473/Ecommerce.git
           username: kauthamthiyagarajan@gmail.com
-          password: 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
+          password: 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
           default-label: develop  # Branch name
           clone-on-start: true
           search-paths: '{application}'  # Look for configs by service name
