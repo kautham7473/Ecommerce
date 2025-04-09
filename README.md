@@ -1,40 +1,39 @@
 # 🛒 E-Commerce Microservices Project
 
-A backend microservices-based architecture for an e-commerce application built using **Spring Boot**, **Spring Cloud**, and **Docker**, with support for service discovery, centralized configuration, and token-based authentication (JWT – in progress).
+A backend microservices-based e-commerce system using **Spring Boot**, **Spring Cloud**, **Docker**, and **MariaDB**. Built for learning, resume enhancement, and real-world architecture practice. Includes service discovery, centralized config, and token-based authentication (JWT - in progress).
 
 ---
 
-## 🧩 Services Included
+## 🧩 Included Services
 
 ### ✅ Discovery Server (Eureka)
-- **Purpose**: Enables service registration and discovery.
+- **Role**: Service registration & discovery
 - **Status**: ✅ Deployed on Render
-- **Tech Stack**: Spring Cloud Eureka
+- **Tech**: Spring Cloud Eureka
 
 ### ✅ Config Server
-- **Purpose**: Centralized configuration management for all microservices.
+- **Role**: Centralized configuration
 - **Status**: ✅ Deployed on Render
-- **Tech Stack**: Spring Cloud Config
+- **Tech**: Spring Cloud Config
 
 ### ✅ User Service
-- **Purpose**: Handles user creation, authentication, and seller info.
+- **Role**: User registration, login, and JWT token generation
 - **Status**: ✅ Deployed on Render
 - **Features**:
-  - User Registration
-  - User Login
-  - JWT Token Generation (to be used by other services)
+  - Register & login
+  - Generate JWT tokens
+  - Store seller information
 
 ### ✅ Product Service
-- **Purpose**: Manages all products listed by sellers.
-- **Status**: ✅ Tested and working locally
-- **Features Implemented**:
-  - Create Product (linked to seller via user ID)
-  - Get All Products by Seller
-  - Get Product by ID
-  - Delete Product
-- **Pending**:
-  - JWT Authentication (next step)
-  - Authorization with extracted user ID
+- **Role**: Seller's product management
+- **Status**: ✅ Working locally
+- **Features**:
+  - Add product (linked via seller ID)
+  - Get all products by seller
+  - Get product by ID
+  - Delete product
+  - JWT token verification
+  - Authorization using extracted user ID
 
 ---
 
@@ -42,73 +41,42 @@ A backend microservices-based architecture for an e-commerce application built u
 
 - Java 21
 - Spring Boot 3.4.3
-- Spring Cloud
-- Eureka
-- Spring Cloud Config
+- Spring Cloud (Eureka, Config)
 - Docker & Docker Compose
-- PostgreSQL (planned)
-- JWT (in progress)
+- **MariaDB (Cloud-hosted)**
+- JWT Auth (in progress)
 
 ---
 
-## 📦 Deployment
+## 🚀 Deployment
 
-- Discovery & Config Server: ✅ [Hosted on Render](https://render.com/)
-- User Service: ✅ Deployed
-- Product Service: 🛠️ In progress (currently tested locally)
-
----
-
-## 🚧 Next Steps
-
-- [ ] Add JWT Authentication to Product Service
-- [ ] Deploy Product Service
-- [ ] Implement Order, Payment, and Inventory services
-- [ ] Create frontend for the app (React – planned)
-- [ ] Enable integration testing with Selenium (planned)
-- [ ] Finalize README with detailed setup instructions
+- **Eureka & Config Server**: ✅ Live on Render
+- **User Service**: ✅ Deployed
+- **Product Service**: 🛠️ Local (to be deployed soon)
 
 ---
 
-## ❤️ About This Project
+## ✅ Next Goals
 
-This isn’t just a technical showcase — it’s a deeply personal milestone.
-
-Built with purpose, it reflects:
-- 💻 My journey to level up backend & infrastructure expertise  
-- 🧠 Taking full ownership and leading a real-world project end-to-end  
-- 💕 Creating an opportunity for my girlfriend to demonstrate her Selenium testing skills  
-- 🚀 Bringing life to my resume with a project that actually means something  
-
-> "More than just code — this is a story of growth, grit, and the belief that we can build our own way forward."
+- [x] JWT for User Service
+- [x] JWT Validation in Product Service
+- [ ] Deploy Product Service to Render
+- [ ] Build Order, Payment & Inventory Services
+- [ ] Develop Frontend (React)
+- [ ] UI Automation with Selenium (by my girlfriend!)
 
 ---
 
-## 📁 Repo Structure (so far)
-<pre>
- ecommerce-microservices/ 
- │ 
- ├── config-server/ # Centralized config management 
-     │ 
-     └── src/ 
- │ 
- ├── discovery-server/ # Eureka service discovery 
-     │ 
-     └── src/ 
- │ 
- ├── user-service/ # Manages users & JWT auth 
-     │ 
-     ├── src/ 
-     │ 
-     └── Dockerfile 
- │ 
- ├── product-service/ # Handles seller product listings 
-     │ 
-     ├── src/ 
-     │ 
-     └── Dockerfile 
- │ 
- ├── docker-compose.yml # For local orchestration of all services 
- │ 
- └── README.md # This file 👋
-</pre>
+## ❤️ Why I Built This
+
+This is more than just a backend system. It’s a personal journey:
+- 🚀 Level up backend and infra skills
+- 🧠 Learn end-to-end architecture from scratch
+- 💕 Collaborate with my girlfriend on testing
+- 📄 Add strong, real-world project to resume
+
+> “Not just a tech stack — this is a story of growth, love, and learning.”
+
+---
+
+## 📁 Repo Structure
