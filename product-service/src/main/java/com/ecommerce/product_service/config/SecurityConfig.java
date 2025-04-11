@@ -27,6 +27,7 @@ public class SecurityConfig {
                 .cors(withDefaults())
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/ping").permitAll()
                         .requestMatchers("/api/products/**", "/api/product/**").hasAnyRole("ADMIN", "SELLER")
                         .requestMatchers("/api/customer/**").hasRole("CUSTOMER")
                         .anyRequest().authenticated()
