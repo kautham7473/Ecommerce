@@ -115,19 +115,21 @@ const ProductPage = () => {
             </span>
           </div>
           <p className="text-sm text-gray-600">Stock: {product.stock > 0 ? `${product.stock} left` : 'Out of stock'}</p>
-          <p className="text-sm text-gray-600">Average Rating: ⭐ {product.averageRating}</p>
-          <button
-            onClick={() => navigate(-1)}
-            className="bg-rosepink text-white px-3 py-1 rounded-md hover:bg-rosehover"
-          >
-            Add to Cart
-          </button>
-          <button
-            onClick={() => navigate(-1)}
-            className="bg-rosepink text-white px-3 py-1 rounded-md hover:bg-rosehover"
-          >
-            Buy Now
-          </button>
+          <p className="text-sm text-gray-600 mb-6">Average Rating: ⭐ {product.averageRating}</p>
+          <div className="flex flex-col gap-4 mt-6">
+            <button
+              onClick={() => navigate(-1)}
+              className="bg-gradient-to-r from-purple-500 via-pink-500 to-rosepink text-white px-4 py-2 rounded-md shadow hover:from-purple-600 hover:to-rosehover transition"
+            >
+              Add to Cart
+            </button>
+            <button
+              onClick={() => navigate(-1)}
+              className="bg-gradient-to-r from-blue-500 via-indigo-500 to-indigo-700 text-white px-4 py-2 rounded-md shadow hover:from-blue-600 hover:to-indigo-800 transition"
+            >
+              Buy Now
+            </button>
+          </div>
         </div>
       </div>
 
