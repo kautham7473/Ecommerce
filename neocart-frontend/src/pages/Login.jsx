@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { setTokenWithExpiry } from '../utils/auth'
+import loginBanner from '/src/assets/Neocart_cropped.png'
 
 
 const Login = () => {
@@ -48,7 +49,7 @@ const Login = () => {
       <div className="bg-white p-8 rounded-2xl shadow-md w-full max-w-md flex flex-col items-center">
         {/* Image */}
         <img
-          src="src\\assets\\Neocart_cropped.png"
+          src={loginBanner}
           alt="Login banner"
           className="w-80 object-cover mb-6"
         />

@@ -2,6 +2,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import loginBanner from '/src/assets/Neocart_cropped.png'
 
 function Register() {
   const navigate = useNavigate()
@@ -70,7 +71,7 @@ function Register() {
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-4">
       <div className="max-w-md w-full bg-white p-8 rounded-xl shadow-md">
         <img
-          src="src/assets/Neocart_cropped.png"
+          src={loginBanner}
           alt="Login banner"
           className="w-80 object-cover mb-6"
         />

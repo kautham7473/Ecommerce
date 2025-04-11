@@ -63,7 +63,7 @@ const ProductPage = () => {
         {/* Logo */}
         <div className="flex items-center space-x-2">
           <img
-            src="/src/assets/Neocart_cropped.png"
+            src={loginBanner}
             alt="Company Logo"
             className="w-40 object-cover"
           />

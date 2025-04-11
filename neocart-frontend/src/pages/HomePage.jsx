@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
+import loginBanner from '/src/assets/Neocart_cropped.png'
 
 const HomePage = () => {
   const navigate = useNavigate()
@@ -50,7 +51,7 @@ const HomePage = () => {
         {/* Logo */}
         <div className="flex items-center space-x-2">
           <img
-            src="/src/assets/Neocart_cropped.png"
+            src={loginBanner}
             alt="Company Logo"
             className="w-40 object-cover"
           />
