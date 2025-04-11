@@ -12,6 +12,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/sign")
+@CrossOrigin(origins = {"http://localhost:5173", "https://neocart-ui.onrender.com"})
 public class SigninController {
     private final SignInService signinService;
 

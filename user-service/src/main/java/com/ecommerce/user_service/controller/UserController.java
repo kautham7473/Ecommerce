@@ -13,7 +13,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin
+@CrossOrigin(origins = {"http://localhost:5173", "https://neocart-ui.onrender.com"})
 public class UserController {
 
     @Autowired

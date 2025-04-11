@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/customer")
-@CrossOrigin(origins = "http://localhost:5173") // Adjust origin as needed
+@CrossOrigin(origins = {"http://localhost:5173", "https://neocart-ui.onrender.com"}) // Adjust origin as needed
 public class CustomerProductController {
 
     @Autowired
