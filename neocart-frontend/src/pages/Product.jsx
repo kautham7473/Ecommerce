@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
+import loginBanner from '/src/assets/Neocart_cropped.png'
 
 const ProductPage = () => {
   const { id } = useParams()
