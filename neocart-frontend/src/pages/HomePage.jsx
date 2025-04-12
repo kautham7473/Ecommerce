@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import loginBanner from '/src/assets/Neocart_cropped.png'
 
 const HomePage = () => {
-  const discountedPrice = product.price - (product.price * product.discountPercentage / 100)
   const navigate = useNavigate()
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(true)
@@ -105,7 +104,11 @@ const HomePage = () => {
                 {/* Product details */}
                 <h3 className="text-lg font-semibold text-gray-800 text-center">{product.name}</h3>
                 <p className="text-sm text-gray-600 mb-2 text-center">{product.description}</p>
-                <p className="text-rosepink font-bold text-center">₹{product.price - (product.price * product.discountPercentage / 100)}</p>
+                <div className="text-center">
+                  <p className="text-gray-500 line-through text-sm">₹{product.price}</p>
+                  <p className="text-rosepink font-bold">₹{(product.price - (product.price * product.discountPercent) / 100).toFixed(2)}</p>
+                </div>
+
               </Link>
             ))}
           </div>
