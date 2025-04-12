@@ -44,8 +44,6 @@ const HomePage = () => {
     fetchProducts()
   }, [])
 
-  const discountedPrice = product.price - (product.price * product.discountPercentage / 100)
-
   return (
     <div className="min-h-screen bg-gray-100">
       {/* Header */}
@@ -104,6 +102,7 @@ const HomePage = () => {
                 </div>
 
                 {/* Product details */}
+                <Script>const discountedPrice = product.price - (product.price * product.discountPercentage / 100)</Script>
                 <h3 className="text-lg font-semibold text-gray-800 text-center">{product.name}</h3>
                 <p className="text-sm text-gray-600 mb-2 text-center">{product.description}</p>
                 <div className="text-center">
