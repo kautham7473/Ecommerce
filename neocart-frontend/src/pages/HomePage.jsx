@@ -102,12 +102,11 @@ const HomePage = () => {
                 </div>
 
                 {/* Product details */}
-                <Script>const discountedPrice = product.price - (product.price * product.discountPercentage / 100)</Script>
                 <h3 className="text-lg font-semibold text-gray-800 text-center">{product.name}</h3>
                 <p className="text-sm text-gray-600 mb-2 text-center">{product.description}</p>
                 <div className="text-center">
                   <p className="text-gray-500 line-through text-sm">₹{product.price}</p>
-                  <p className="text-rosepink font-bold">₹{discountedPrice.toFixed(2)}</p>
+                  <p className="text-rosepink font-bold">₹{(product.price - (product.price * product.discountPercentage / 100)).toFixed(2)}</p>
                 </div>
 
               </Link>
