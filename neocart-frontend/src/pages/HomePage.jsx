@@ -105,7 +105,7 @@ const HomePage = () => {
                 {/* Product details */}
                 <h3 className="text-lg font-semibold text-gray-800 text-center">{product.name}</h3>
                 <p className="text-sm text-gray-600 mb-2 text-center">{product.description}</p>
-                <p className="text-rosepink font-bold text-center">₹{discountedPrice}</p>
+                <p className="text-rosepink font-bold text-center">₹{product.price - (product.price * product.discountPercentage / 100)}</p>
               </Link>
             ))}
           </div>
