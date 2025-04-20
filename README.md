@@ -60,8 +60,8 @@ A backend microservices-based e-commerce system using **Spring Boot**, **Spring 
 
 - [x] JWT for User Service
 - [x] JWT Validation in Product Service
-- [ ] Deploy Product Service to Render
-- [ ] Build Order, Payment & Inventory Services
+- [x] Deploy Product Service to Render
+- [x] Build Order, Payment & Inventory Services
 - [ ] Develop Frontend (React)
 - [ ] UI Automation with Selenium (by my girlfriend!)
 
