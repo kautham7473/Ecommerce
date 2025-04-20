@@ -1,51 +1,39 @@
-import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { Link } from 'react-router-dom'
-import loginBanner from '/src/assets/Neocart_cropped.png'
+import React from 'react';
+import { useNavigate, Link } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
+import loginBanner from '/src/assets/Neocart_cropped.png';
 
 const HomePage = () => {
-  const navigate = useNavigate()
-  const [products, setProducts] = useState([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
+  const navigate = useNavigate();
 
   const handleLogout = () => {
-    localStorage.removeItem('token')
-    localStorage.removeItem('tokenExpiry')
-    navigate('/')
-  }
+    localStorage.removeItem('token');
+    localStorage.removeItem('tokenExpiry');
+    navigate('/');
+  };
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      const token = localStorage.getItem('token')
-  
-      try {
-        const response = await fetch(`${import.meta.env.VITE_PRODUCT_SERVICE_BASE_URL}/api/customer/products`, {
+  const { data: products = [], isLoading, error } = useQuery({
+    queryKey: ['products'],
+    queryFn: async () => {
+      const token = localStorage.getItem('token');
+      const response = await fetch(
+        `${import.meta.env.VITE_PRODUCT_SERVICE_BASE_URL}/api/customer/products`,
+        {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token}`,
           },
-        })        
-  
-        if (!response.ok) {
-          throw new Error('Failed to fetch products')
         }
-  
-        const data = await response.json()
-        setProducts(data)
-        setLoading(false)
-      } catch (err) {
-        console.error('Error fetching products:', err)
-        setError(err.message)
-        setLoading(false)
+      );
+      if (!response.ok) {
+        throw new Error('Failed to fetch products');
       }
-    }
-  
-    fetchProducts()
-  }, [])
+      return response.json();
+    },
+  });
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-gray-100 text">
       {/* Header */}
       <header className="bg-white shadow-md py-4 px-6 flex items-center justify-between">
         {/* Logo */}
@@ -80,10 +68,10 @@ const HomePage = () => {
         <h1 className="text-3xl font-bold text-gray-800 mb-4">Welcome to the Home Page!</h1>
         <p className="text-gray-600 mb-6">Explore products, manage your cart, and more.</p>
 
-        {loading ? (
+        {isLoading ? (
           <p>Loading products...</p>
         ) : error ? (
-          <p className="text-red-500">{error}</p>
+          <p className="text-red-500">{error.message}</p>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {products.map((product) => (
@@ -108,11 +96,10 @@ const HomePage = () => {
               </Link>
             ))}
           </div>
-
         )}
       </main>
     </div>
-  )
-}
+  );
+};
 
-export default HomePage
+export default HomePage;
