@@ -13,7 +13,7 @@
         <module>user-service</module>
         <module>config-server</module>
         <module>product-service</module>
-        <module>cart_service</module>
+        <module>cart-service</module>
     </modules>
 
     <dependencyManagement>
