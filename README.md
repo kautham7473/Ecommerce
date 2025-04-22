@@ -6,7 +6,7 @@
 
 ## 📦 Project Structure
 
-```
+'''
 Ecommerce/                         
 ├── config-server/    (Spring Cloud Config)      
 ├── discovery-server/ (Eureka Service Registry)   
@@ -18,7 +18,7 @@ Ecommerce/
 ├── README.md         (This file)                
 ├── LICENSE           (MIT License)              
 └── .gitignore                                      
-```  ([github.com](https://github.com/kautham7473/Ecommerce))
+'''  ([github.com](https://github.com/kautham7473/Ecommerce))
 
 ---
 
