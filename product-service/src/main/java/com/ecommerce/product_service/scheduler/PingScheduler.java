@@ -14,7 +14,7 @@ public class PingScheduler {
     @Scheduled(fixedRate = 300000) // 5 minutes
     public void pingDependency() {
         try {
-            String response = restTemplate.getForObject("https://user-service-td9i.onrender.com/ping", String.class);
+            String response = restTemplate.getForObject("https://user-service-td9i.onrender.com/actuator/health", String.class);
             if (response!=null)
                 log.info("User Service had been called and got the response {}",response);
         } catch (Exception e) {

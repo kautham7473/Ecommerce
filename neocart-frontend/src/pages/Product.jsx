@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import loginBanner from '/src/assets/Neocart_cropped.png'
+import axios from 'axios';
+import { jwtDecode } from "jwt-decode";
+
 
 const ProductPage = () => {
   const { id } = useParams()
@@ -56,6 +59,34 @@ const ProductPage = () => {
 
   const similarProducts = allProducts.filter(p => p.id !== product.id)
   const discountedPrice = product.price - (product.price * product.discountPercentage / 100)
+
+  const addToCart = async (userId, productId, quantity) => {
+    try {
+      const response = await axios.post('${import.meta.env.VITE_CART_SERVICE_BASE_URL}/api/cart', {
+        userId,
+        productId,
+        quantity
+      }, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`
+        }
+      });
+  
+      console.log('Cart Updated:', response.data);
+      alert('Product added to cart!');
+    } catch (error) {
+      console.error('Error adding to cart:', error);
+      alert('Failed to add product to cart.');
+    }
+  };  
+
+  const handleAddToCart = () => {
+    const token = localStorage.getItem("token");
+    const decoded = jwtDecode(token);
+    const userId = decoded.userId; // Or decoded.userId or decoded.id — check your payload
+  
+    addToCart(userId, product.id, 1);
+  };
 
   return (
     <div className="min-h-screen bg-gray-100 p-6">
@@ -119,7 +150,7 @@ const ProductPage = () => {
           <p className="text-sm text-gray-600 mb-6">Average Rating: ⭐ {product.averageRating}</p>
           <div className="flex flex-col gap-4 mt-6">
             <button
-              onClick={() => navigate(-1)}
+              onClick={handleAddToCart}
               className="bg-gradient-to-r from-purple-500 via-pink-500 to-rosepink text-white px-4 py-2 rounded-md shadow hover:from-purple-600 hover:to-rosehover transition"
             >
               Add to Cart

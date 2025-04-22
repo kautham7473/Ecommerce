@@ -1,48 +1,53 @@
-import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import { setTokenWithExpiry } from '../utils/auth'
-import loginBanner from '/src/assets/Neocart_cropped.png'
-
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useMutation } from '@tanstack/react-query';
+import { setTokenWithExpiry } from '../utils/auth';
+import loginBanner from '/src/assets/Neocart_cropped.png';
 
 const Login = () => {
   const [formData, setFormData] = useState({
     username: '',
     password: '',
-  })
+  });
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.id]: e.target.value })
-  }
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-  
-    try {
-      const response = await fetch(`${import.meta.env.VITE_USER_SERVICE_BASE_URL}/auth/login`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      })
-  
-      if (response.ok) {
-        const data = await response.json()
-        setTokenWithExpiry(data.token, 60) // valid for 60 minutes
-  
-        navigate('/home') // or wherever your homepage is
-      } else {
-        const err = await response.json()
-        alert(err.message || 'Invalid credentials')
+  const loginMutation = useMutation({
+    mutationFn: async () => {
+      const response = await fetch(
+        `${import.meta.env.VITE_USER_SERVICE_BASE_URL}/auth/login`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+      if (!response.ok) {
+        const err = await response.json();
+        throw new Error(err.message || 'Invalid credentials');
       }
-    } catch (error) {
-      console.error('Login error:', error)
-      alert('Something went wrong. Please try again.')
-    }
-  }
-  
+      return response.json();
+    },
+    onSuccess: (data) => {
+      setTokenWithExpiry(data.token, 60);
+      navigate('/home');
+    },
+    onError: (error) => {
+      console.error('Login error:', error);
+      alert(error.message || 'Something went wrong. Please try again.');
+    },
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    loginMutation.mutate();
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -91,9 +96,10 @@ const Login = () => {
 
           <button
             type="submit"
-            className="w-full bg-rosepink text-white py-2 rounded-md hover:bg-rosehover transition duration-200 font-semibold"
+            disabled={loginMutation.isPending}
+            className="w-full bg-rosepink text-white py-2 rounded-md hover:bg-rosehover transition duration-200 font-semibold disabled:opacity-50"
           >
-            Login
+            {loginMutation.isPending ? 'Logging in...' : 'Login'}
           </button>
 
           <p className="mt-4 text-center text-sm text-gray-600 font-medium">
@@ -105,7 +111,7 @@ const Login = () => {
         </form>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;
