@@ -69,8 +69,8 @@ Ecommerce/
 
 1. **Clone the repo**
    ```bash
-   git clone https://github.com/kautham7473/Ecommerce.git
-   cd Ecommerce
+   git clone https://github.com/kautham7473/Neocart.git
+   cd Neocart
    ```  
 
 2. **Start all services** via Docker Compose
