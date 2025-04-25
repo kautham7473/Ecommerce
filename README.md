@@ -81,9 +81,9 @@ Ecommerce/
 3. **Access the apps**
    - Frontend: `http://localhost:5173` 
    - Eureka Dashboard: `http://localhost:8761` 
-   - User Service API: `http://localhost:8081` 
-   - Product Service API: `http://localhost:8082` 
-   - Cart Service API: `http://localhost:8083` 
+   - User Service API: `http://localhost:8080` 
+   - Product Service API: `http://localhost:8081` 
+   - Cart Service API: `http://localhost:8082` 
 
 ---
 
