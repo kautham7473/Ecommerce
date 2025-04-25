@@ -6,7 +6,7 @@
 
 ## 📦 Project Structure
 
-
+```
 Ecommerce/                         
 ├── config-server/    (Spring Cloud Config)      
 ├── discovery-server/ (Eureka Service Registry)   
@@ -17,8 +17,8 @@ Ecommerce/
 ├── docker-compose.yml (Local orchestration)      
 ├── README.md         (This file)                
 ├── LICENSE           (MIT License)              
-└── .gitignore                                      
-  
+└── .gitignore
+```
 
 ---
 
