@@ -6,7 +6,7 @@
 
 ## 📦 Project Structure
 
-'''
+
 Ecommerce/                         
 ├── config-server/    (Spring Cloud Config)      
 ├── discovery-server/ (Eureka Service Registry)   
@@ -18,7 +18,7 @@ Ecommerce/
 ├── README.md         (This file)                
 ├── LICENSE           (MIT License)              
 └── .gitignore                                      
-'''  ([github.com](https://github.com/kautham7473/Ecommerce))
+  ([github.com](https://github.com/kautham7473/Ecommerce))
 
 ---
 
@@ -100,13 +100,13 @@ Ecommerce/
 ## 📝 Environment Variables
 
 Create a `.env` file in each service directory (`*-service/`) with:
-```
+
 SPRING_PROFILES_ACTIVE=development
 SPRING_DATASOURCE_URL=jdbc:mariadb://<host>:<port>/<db>
 SPRING_DATASOURCE_USERNAME=<user>
 SPRING_DATASOURCE_PASSWORD=<pass>
 JWT_SECRET=<your_jwt_secret>
-```  ([github.com](https://github.com/kautham7473/Ecommerce))
+  ([github.com](https://github.com/kautham7473/Ecommerce))
 
 ---
 
